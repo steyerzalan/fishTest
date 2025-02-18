@@ -21,7 +21,7 @@ class FishingRod {
     }
 		
     //id alapján való lekérdezés
-	public function getFishingRodById($RodsId) {
+	public function getFishingRodById($RodsId): array {
 		$query = "SELECT fr_ID, name  FROM fishingRod WHERE fr_ID = ".$RodsId;
 		$dbvez = new DBController();
 		$this->fishingrods = $dbvez->executeSelectQuery($query);
@@ -32,7 +32,7 @@ class FishingRod {
     //Típus alapján történő lekérdezés
     public function getFishingRodByType($TypeId) {
 		$query = "SELECT fr_ID, name FROM fishingrod 
-		inner join type on fishingrod.typ_ID=type.t_id 
+		inner join type on fishingrod.type_ID=type.t_id 
 		where type.m_name= '".$TypeId. "'";
 		$dbvez = new DBController();
 		$this->fishingrods = $dbvez->executeSelectQuery($query);
